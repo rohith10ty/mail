@@ -540,21 +540,21 @@ p, span, strong, small, label, a, b, i, div, aside, main, header, section {
   margin: 2px 0 0;
 }
 
-/* Top Navbar Search Bar (Sablefinch style) */
+/* Top Navbar Search Bar (Sablefinch style - smaller & compact) */
 .topbar-search-wrap {
-  flex: 1 1 360px;
-  max-width: 460px;
-  margin: 0 16px;
+  flex: 0 1 250px;
+  max-width: 270px;
+  margin: 0 14px;
 }
 .topbar-search-box {
-  height: 40px;
+  height: 36px;
   background: var(--v14-surface);
   border: 1px solid var(--v14-border);
   border-radius: 9999px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 16px;
+  gap: 8px;
+  padding: 0 12px;
   color: var(--v14-muted);
   transition: all 0.2s ease;
   cursor: text;
@@ -570,7 +570,7 @@ p, span, strong, small, label, a, b, i, div, aside, main, header, section {
   outline: 0;
   background: transparent;
   color: var(--v14-text);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   min-width: 0;
   flex: 1;
@@ -580,13 +580,13 @@ p, span, strong, small, label, a, b, i, div, aside, main, header, section {
 }
 .topbar-search-box kbd {
   font-family: inherit;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   color: var(--v14-muted);
   border: 1px solid var(--v14-border);
   background: var(--v14-surface-2);
-  border-radius: 6px;
-  padding: 2px 6px;
+  border-radius: 4px;
+  padding: 1px 5px;
 }
 .search-clear-btn {
   border: 0;
@@ -1684,34 +1684,192 @@ body, html, #root, .app-shell, .content-area {
   }
 }
 
-/* Mobile Screens (<= 640px) */
-@media (max-width: 640px) {
+/* iPad Portrait & Medium Screens (768px to 1080px) */
+@media (min-width: 768px) and (max-width: 1080px) {
   .topbar {
-    padding: 0 16px !important;
-    height: 64px !important;
+    height: 68px !important;
+    min-height: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 20px !important;
+    gap: 12px !important;
+    flex-wrap: nowrap !important;
+  }
+  .topbar-left {
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .topbar-greeting {
+    min-width: 0 !important;
   }
   .topbar-greeting h1 {
-    font-size: 17px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 240px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .topbar-greeting h1 .v14-typewriter-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: inline-block !important;
+  }
+  .topbar-search-wrap {
+    flex: 0 1 200px !important;
+    max-width: 220px !important;
+    margin: 0 !important;
+  }
+  .topbar-search-box {
+    height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 12px !important;
+  }
+  .topbar-right {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .nav-refresh {
+    height: 36px !important;
+    padding: 0 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    border-radius: 9px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+  .nav-refresh span {
+    display: inline !important;
+  }
+}
+
+/* Mobile Screens (<= 767px, including 360px Galaxy A55) */
+@media (max-width: 767px) {
+  .topbar {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 14px 10px !important;
+    gap: 6px 0 !important;
+  }
+  .topbar-left {
+    order: 1 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    max-width: calc(100% - 110px) !important;
+  }
+  .topbar-greeting {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+  }
+  .topbar-greeting h1 {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+  }
+  .topbar-greeting h1 .v14-typewriter-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    vertical-align: middle !important;
   }
   .topbar-greeting p {
     display: none !important;
   }
+
+  .topbar-right {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .nav-refresh {
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 8px !important;
+    background: var(--v14-surface) !important;
+    border: 1px solid var(--v14-border) !important;
+    color: var(--v14-text) !important;
+    flex: 0 0 32px !important;
+  }
   .nav-refresh span {
     display: none !important;
   }
-  .nav-refresh {
-    padding: 0 8px !important;
-    width: 36px !important;
-    justify-content: center !important;
-  }
-  .top-profile-name {
-    display: none !important;
+  .notification {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 8px !important;
   }
   .top-profile-btn {
-    padding: 3px !important;
+    padding: 2px !important;
+    border: 1px solid transparent !important;
   }
+  .top-profile-name,
+  .top-chevron {
+    display: none !important;
+  }
+  .top-avatar {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Search row in mobile: compact, sleek pill spanning the top cleanly */
+  .topbar-search-wrap {
+    order: 3 !important;
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin: 4px 0 0 0 !important;
+  }
+  .topbar-search-box {
+    height: 34px !important;
+    border-radius: 10px !important;
+    padding: 0 10px !important;
+    gap: 6px !important;
+  }
+  .topbar-search-box input {
+    font-size: 12px !important;
+  }
+  .topbar-search-box kbd {
+    display: none !important;
+  }
+
   .dashboard-body {
-    padding: 12px 10px 24px !important;
+    padding: 10px 10px 20px !important;
   }
   .mail-card-header,
   .mail-toolbar,
@@ -1722,11 +1880,25 @@ body, html, #root, .app-shell, .content-area {
     padding-right: 14px !important;
   }
   .mail-row {
-    padding: 12px 10px !important;
-    gap: 8px !important;
+    padding: 12px 12px !important;
+    gap: 10px !important;
+    min-height: 88px !important;
   }
-  .row-copy {
-    gap: 2px !important;
+  .sender-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+    font-size: 11px !important;
+  }
+  .sender-line strong,
+  .sender-name {
+    font-size: 14px !important;
+  }
+  .subject-line {
+    font-size: 13px !important;
+  }
+  .preview-line {
+    font-size: 12px !important;
   }
 }
 
